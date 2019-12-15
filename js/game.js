@@ -3,7 +3,8 @@ $(document).ready(function(){
   setInterval(update,10);
   bo = document.getElementById('runBo');
 });
-var gsmeStart = 0;
+var gameStart = 0;
+var gameOver = 0;
 $(window).scroll(function() {
   var win_h = document.documentElement.clientHeight;
   $(".lineImg").each(function(index, element){
@@ -18,14 +19,13 @@ $(window).scroll(function() {
     var height = document.body.clientHeight;
     if($(window).scrollTop() + win_h >= height){
       $(this).css('background-image','url(img/material/mat_pic_'+this.src.substring(this.src.length-5));
-      gsmeStart = 1;
-      var bo = document.getElementById('runBo');
+      gameStart = 1;
       bo.src = "gif/run.gif";
     }
     else{
       $(this).css('background-image','none');
-      gsmeStart = 0;
-      var bo = document.getElementById('runBo');
+      gameStart = 0;
+      gameOver = 0;
       bo.src = "gif/run.png";
     }
   });
@@ -53,7 +53,7 @@ var obE = 0; //end
 var obtime = [];
 var img = []; //ob
 function update(){
-  if(gsmeStart){
+  if(gameStart && !gameOver){
     time++;
     if(!(time%300)&&Math.floor(Math.random()*3)){ //每3秒2/3出障礙物
       //ob create
@@ -79,7 +79,7 @@ function update(){
             bo.offsetTop<img[i].offsetTop+img[i].offsetHeight&&
             bo.offsetHeight+bo.offsetTop>img[i].offsetTop
           ){
-            gameStart=0;
+            gameOver=1;
           }
         }
         if(img[i].style.left.substring(0,img[i].style.left.length-2) <= -60){
@@ -104,6 +104,22 @@ function update(){
         }
       })
     }
+  }
+  else if(gameOver){
+    for(var i=obS; i<obE; i++){
+      document.getElementById('game').removeChild(img[i]);
+      delete img[i];
+      delete obtime[i];
+    }
+    for(var i=img.length-1; i>=0; i--){
+      img.splice(0);
+      obtime.splice(0);
+    }
+    bo.src = "gif/run.png";
+    gameStart=0;
+    obS=0;
+    obE=0;
+    time=0;
   }
 }
 var num = [];
