@@ -1,0 +1,352 @@
+body, header, nav, p, ul, li, div, article{
+  margin: 0;
+  padding: 0;
+  border: 0;
+	text-align: center;
+}
+body{
+  margin: 0 auto;
+  width: 1440px;
+  background-color: #e5e5dd;
+}
+a{
+  text-decoration:none;
+}
+header{
+  padding-top: 68px;
+  height: 809px;
+  background-color: white;
+}
+header .center{
+  position: absolute;
+  margin-top: 182px;
+  margin-left: 398px;
+  opacity: 0;
+  animation: light 1.5s 1 ease-in-out;
+  animation-delay: 2s;
+  animation-fill-mode:forwards;
+}
+nav{
+  position: fixed;
+  width: 1440px;
+  height: 68px;
+  background-color: #3c5162;
+  z-index: 1;
+}
+nav ul{
+  height: 100%;
+  margin-right: -2px;
+  float: right;
+}
+nav li{
+	display: inline-block;
+  border-top: 0px;
+  border-bottom: 0px;
+  border-left: 0px;
+  border-right: 1px;
+  border-style: solid;
+  border-color: #4f5c75;
+  font-family: Roboto;
+}
+nav li a{
+  color: white;
+  padding: 20px 52px;
+  line-height: 68px;
+  font-size: 19px;
+}
+nav li a:hover{
+  color: #99a1ae;
+}
+article{
+  background-image: url('../img/material/mat_bg.png');
+  padding-bottom:243px;
+}
+footer{
+  height: 74px;
+  background-color: #3c5162;
+}
+.iconTop{
+  float: left;
+  padding: 21px 32px;
+}
+footer .icon{
+  float: left;
+  margin-left: 32px;
+  margin-top: 21px;
+  margin-top:24px;
+  margin-right:16px;
+}
+.icon_p{
+  margin-top: 33px;
+  float: left;
+  font-size: 14px;
+  font-family: Roboto;
+  color: white;
+}
+.ipad{
+  margin-top:-8px;
+}
+.ipadContent{
+  position: absolute;
+  margin-top: 41px;
+  margin-left: 259px;
+  padding: 19px 18px;
+  z-index:0;
+  background-color: #f1eee8;
+}
+.ipadContent h1{
+  text-align: left;
+  font-family: Roboto-Bold;
+  color: #61514a;
+  margin: 15px 0px 0px 19px;
+  font-size: 23px;
+}
+.ipadContent_e{
+  text-align: left;
+  font-family: Roboto;
+  color: #61514a;
+  margin: 4px 0px 0px 18px;
+  font-size: 21px;
+}
+header .ipadContent_e{
+  text-align:center;
+  line-height: 32px;
+  margin-top: 14px;
+  opacity: 0;
+  animation: light 1.5s 1 ease-in-out;
+  animation-delay: 3s;
+  animation-fill-mode:forwards;
+}
+.ipadContent_c{
+  text-align: left;
+  font-family: NotoSansCJK-Light;
+  color: #61514a;
+  margin: 13px 0px 0px 18px;
+  font-size: 21px;
+}
+header .ipadContent_c{
+  font-family: NotoSansCJK;
+  text-align:center;
+  margin-top: 57px;
+  line-height: 41px;
+  opacity: 0;
+  animation: light 1.5s 1 ease-in-out;
+  animation-delay: 2.5s;
+  animation-fill-mode:forwards;
+}
+.contact{
+  display: inline-block;
+}
+.contact img{
+  float: left;
+  margin-top: 30px;
+  margin-right: 9px;
+}
+.contact_line{
+  font-size: 16px;
+  padding-left: 10px;
+  border-top: 0px;
+  border-bottom: 0px;
+  border-left: 1px;
+  border-right: 0px;
+  border-style: solid;
+  border-color: white;
+  color: white;
+  font-family: Roboto;
+}
+.contact_p{
+  margin-top: 30px;
+  font-size: 14px;
+  font-family: Roboto;
+  color: white;
+  display: inline-block;
+}
+.Title_img_p{
+  display:inline;
+}
+.BigTitle{
+  color: #2f2925;
+  font-size: 27px;
+  font-family:Roboto-Bold;
+}
+header .BigTitle{
+  font-size: 48px;
+  margin-left: 13px;
+}
+.unitTitle{
+  text-align: left;
+  margin-left:235px;
+  margin-top:110px;
+}
+.unitNumber{
+  color: #2f2925;
+  font-size:110px;
+  font-family:Roboto-Bold;
+  margin-right: 16px;
+  display: inline-block;
+}
+.unitBigTitle{
+  color: #2f2925;
+  font-size:48px;
+  text-align: left;
+  font-family:Roboto-Bold;
+}
+.unitSmallTitle{
+  color:#989898;
+  font-size:33px;
+  font-family:Roboto-Bold;
+  text-align: left;
+  margin-top:4px;
+}
+.header_scale{
+  background-size: 120%;
+  width: 1440px;
+  height: 809px;
+  background-position:center;
+  background-image: url('../img/material/mat_img.png');
+  animation: scale 2s 1 ease-in-out;
+  animation-fill-mode:forwards;
+}
+.header_light{
+  position: absolute;
+  margin-left: -404px;
+  height: 809px;
+  opacity: 0;
+  animation: light 3s 1 ease-in-out;
+  animation-delay: 1.5s;
+  animation-fill-mode:forwards;
+}
+.shake{
+  animation: shake 1.5s infinite ease-in-out;
+  animation-fill-mode:forwards;
+  animation-delay: 3.5s;
+}
+.lineImg{
+  position: absolute;
+  opacity: 0.5;
+  z-index: 0;
+}
+#banana{
+  position: absolute;
+  margin-top:-120px;
+  margin-left:220px;
+  z-index: -1;
+  opacity: 1;
+}
+#apple{
+  position: absolute;
+  margin-top:-30px;
+  margin-left:-35px;
+  z-index: -1;
+  opacity: 0;
+}
+.shadow_b{
+  position: absolute;
+  margin-top:198px;
+  margin-left:225px;
+  z-index: -2;
+  opacity: 0;
+}
+.shadow_a{
+  position: absolute;
+  margin-top:130px;
+  margin-left:279px;
+  z-index: -2;
+  opacity: 0;
+}
+@keyframes banana {
+  15%{
+    margin-top:110px;
+  }
+  30%{
+    transform: rotate(80deg);
+  }
+  50%{
+    transform: rotate(40deg);
+  }
+  75%{
+    transform: rotate(60deg);
+  }
+  100%{
+    margin-top:110px;
+    transform: rotate(50deg);
+  }
+}
+@keyframes apple {
+  0%{
+    opacity: 1;
+    animation-timing-function:ease-out;
+  }
+  5%{
+    animation-timing-function:cubic-bezier(1,0.6,0.3);
+    margin-top:0px;
+    transform: rotate(30deg);
+  }
+  10%{
+    animation-timing-function:cubic-bezier(0.3,0.7,1);
+    margin-top:-8px;
+    margin-left:-20px;
+    transform: rotate(60deg);
+  }
+  15%{
+    animation-timing-function:ease-out;
+    margin-top:56px;
+    margin-left:10px;
+    transform: rotate(120deg);
+  }
+  100%{
+    opacity: 1;
+    transform: rotate(140deg);
+    margin-top:57px;
+    transform: rotate(795deg);
+    margin-left:250px;
+  }
+}
+@keyframes shadow {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+@keyframes scale{
+  100%{
+    background-size: 100%;
+  }
+}
+@keyframes light{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+@keyframes shake{
+  0%{
+		transform: rotate(0deg);
+	}
+	50%{
+		transform: rotate(-25deg);
+	}
+	100%{
+		transform: rotate(0deg);
+	}
+}
+@font-face {
+  font-family: 'Roboto';
+  src:url('../font/Roboto-Regular.ttf') format("truetype");
+}
+@font-face {
+  font-family: 'Roboto-Bold';
+  src:url('../font/Roboto-Bold.ttf') format("truetype");
+}
+@font-face {
+  font-family: 'NotoSansCJK';
+  src:url('../font/NotoSansCJKtc-Medium.otf') format("opentype");
+}
+@font-face {
+  font-family: 'NotoSansCJK-Light';
+  src:url('../font/NotoSansCJKtc-Light.otf') format("opentype");
+}

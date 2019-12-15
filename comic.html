@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>comic page</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/title_icon.png">
+    <script src="js\jquery-3.4.1.min.js"></script>
+    <script src="js\comic.js"></script>
+    <script src="js\skrollr.js"></script>
+    <link rel="stylesheet" href="css\comic.css">
+  </head>
+  <body>
+    <nav>
+      <a href="index.html"><img class="iconTop" src="img/00_icon.png"><a>
+      <ul>
+        <li><a href="material.html">MATERIAL</a></li>
+        <li><a href="game.html">GAME</a></li>
+        <li><a href="comic.html">COMIC</a></li>
+        <li style="border-right: 1px;"><a href="material.html">APP</a></li>
+      </ul>
+    </nav>
+    <header>
+      <img class="header_light" src="img/material/mat_img2.png">
+      <div class="center">
+        <img class="Title_img_p shake" src="img/material/mat_nut.png">
+        <p class="BigTitle Title_img_p">Comic Book</p>
+        <p  class="ipadContent_c">BAO APP除了教學的教材應用外<br>
+        設計了一款有趣的跑酷遊戲<br>
+        讓學生在獎勵機制下快樂的學習。</p>
+        <p  class="ipadContent_e">In addition to the application of teaching materials.<br>
+        Bao app designed an interesting game<br>
+        Let students study happily<br>
+        under the reward mechanism.</p>
+      </div>
+      <div class="header_scale"></div>
+    </header>
+    <article>
+      <div>
+        <div style="padding-top:124px;margin-bottom: 85px;">
+          <p class="BigTitle" style="font-size:48px;">Who is Bao?</p>
+          <p class="BigTitle" style="font-size:33px;color:#989898;margin-top:5px;">Make you happier and happier.</p>
+        </div>
+        <ul>
+          <li><a onclick="gotoComic('01')" >1</a><img src="img/comic/comic_but.png"></li>
+          <li><a onclick="gotoComic('02')" >2</a><img src="img/comic/comic_but.png"></li>
+          <li><a onclick="gotoComic('03')" >3</a><img src="img/comic/comic_but.png"></li>
+          <li><a onclick="gotoComic('04')" >4</a><img src="img/comic/comic_but.png"></li>
+        </ul>
+      </div>
+      <div>
+        <div id="01">
+          <div class="unitTitle" style="margin-top:0px">
+            <p class="unitNumber">01</p>
+            <div style="display: inline-block;">
+              <p class="unitBigTitle">EP1 - Have a Bao day!</p>
+              <p class="unitSmallTitle">#fallinlive #lookatyou #mysunshine</p>
+            </div>
+          </div>
+          <div class="ipadContent">
+            <div onclick="changeImg('1','4');" class="back"></div>
+            <div id="ipadImg1" style="background-image: url(img/comic/comic_1-2.png);" class="ipadImg"></div>
+            <img class="ipad" style="background-image: url(img/comic/comic_1-1.png);" src="img/00_pad.png">
+          </div>
+          <div style="width: 1052px;height: 759px;"></div>
+        </div>
+        <div id="02">
+          <img id="apple" src="img/material/apple.png">
+          <img class="shadow_a" src="img/material/shadow.png">
+          <div class="unitTitle">
+            <p class="unitNumber">02</p>
+            <div style="display: inline-block;">
+              <p class="unitBigTitle">EP2 - You are my flower.</p>
+              <p class="unitSmallTitle">#bestofyou #shine #likeastar #gf</p>
+            </div>
+          </div>
+          <div class="ipadContent">
+            <div class="back"></div>
+            <div id="ipadImg2" style="background-image: url(img/comic/comic_1-2.png);" class="ipadImg"></div>
+            <img class="ipad" style="background-image: url(img/comic/comic_1-1.png);" src="img/00_pad.png">
+          </div>
+          <div style="width: 1052px;height: 759px;"></div>
+        </div>
+        <div id="03">
+          <div class="unitTitle">
+            <p class="unitNumber">03</p>
+            <div style="display: inline-block;">
+              <p class="unitBigTitle">EP3 - Would you like to...</p>
+              <p class="unitSmallTitle">#shouldi #hangout #withyou</p>
+            </div>
+          </div>
+          <div class="ipadContent">
+            <div class="back"></div>
+            <div id="ipadImg3" style="background-image: url(img/comic/comic_1-2.png);" class="ipadImg"></div>
+            <img class="ipad" style="background-image: url(img/comic/comic_1-1.png);" src="img/00_pad.png">
+          </div>
+          <div style="width: 1052px;height: 759px;"></div>
+        </div>
+        <div id="04">
+          <div class="unitTitle">
+            <p class="unitNumber">04</p>
+            <div style="display: inline-block;">
+              <p class="unitBigTitle">EP4 - Go to bed.</p>
+              <p class="unitSmallTitle">#goodnight #9and #3/4 #grave</p>
+            </div>
+          </div>
+          <div class="ipadContent">
+            <div class="back"></div>
+            <div id="ipadImg4" style="background-image: url(img/comic/comic_1-2.png);" class="ipadImg"></div>
+            <img class="ipad" style="background-image: url(img/comic/comic_1-1.png);" src="img/00_pad.png">
+          </div>
+          <div style="width: 1052px;height: 759px;"></div>
+        </div>
+    </article>
+    <footer>
+      <img class="icon" src="img/00_icon.png">
+      <p class="icon_p">&copy 2019 baobao</p>
+      <div style="float:right;">
+        <div class="contact">
+          <p class="contact_line" style="margin-right:58px;">Contact Us</p>
+        </div>
+        <div class="contact">
+          <img src="img/00_email.png">
+          <p class="contact_p" style="margin-right:34px">baobao@gmail.com</p>
+        </div>
+        <div class="contact">
+          <img src="img/00_fb.png">
+          <p class="contact_p" style="font-family:NotoSansCJK-Light;margin-right:89px;">小寶玩分數</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
