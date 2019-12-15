@@ -48,6 +48,7 @@ $(window).scroll(function() {
 });
 var time = 0;
 var jump = 0;
+var score = 0;
 var obS = 0; //start
 var obE = 0; //end
 var obtime = [];
@@ -81,6 +82,8 @@ function update(){
           ){
             gameOver=1;
           }
+          if(img[i].style.left.substring(0,img[i].style.left.length-2) == 150)
+            score++;
         }
         if(img[i].style.left.substring(0,img[i].style.left.length-2) <= -60){
           obS++;
@@ -105,7 +108,7 @@ function update(){
       })
     }
   }
-  else if(gameOver){
+  else if(gameStart && gameOver){
     for(var i=obS; i<obE; i++){
       document.getElementById('game').removeChild(img[i]);
       delete img[i];
@@ -120,6 +123,8 @@ function update(){
     obS=0;
     obE=0;
     time=0;
+    alert("Score："+score);
+    score=0;
   }
 }
 var num = [];
