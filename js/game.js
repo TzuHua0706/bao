@@ -79,7 +79,7 @@ function update(){
             bo.offsetTop<img[i].offsetTop+img[i].offsetHeight&&
             bo.offsetHeight+bo.offsetTop>img[i].offsetTop
           ){
-            console.log('touch');
+            gameStart=0;
           }
         }
         if(img[i].style.left.substring(0,img[i].style.left.length-2) <= -60){
