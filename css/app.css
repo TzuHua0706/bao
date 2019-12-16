@@ -1,0 +1,339 @@
+body, header, nav, p, ul, li, div, a, article{
+  margin: 0;
+  padding: 0;
+  border: 0;
+	text-align: center;
+}
+body{
+  margin: 0 auto;
+  width: 1440px;
+  background-color: #e5e5dd;
+  z-index: -5;
+}
+a{
+  text-decoration:none;
+}
+header{
+  padding-top: 68px;
+  height: 809px;
+  background-color: white;
+}
+header .center{
+  position: absolute;
+  margin-top: 189px;
+  margin-left: 441px;
+  opacity: 0;
+  animation: light 1.5s 1 ease-in-out;
+  animation-delay: 2s;
+  animation-fill-mode:forwards;
+}
+nav{
+  position: fixed;
+  width: 1440px;
+  height: 68px;
+  background-color: #3c5162;
+  z-index: 5;
+}
+nav ul{
+  height: 100%;
+  margin-right: -2px;
+  float: right;
+}
+nav li{
+	display: inline-block;
+  border-top: 0px;
+  border-bottom: 0px;
+  border-left: 0px;
+  border-right: 1px;
+  border-style: solid;
+  border-color: #4f5c75;
+  font-family: Roboto;
+}
+nav li a{
+  color: white;
+  padding: 20px 52px;
+  line-height: 68px;
+  font-size: 19px;
+}
+nav li a:hover{
+  color: #99a1ae;
+}
+div li{
+	display: inline-block;
+  margin: 0 13px;
+}
+div li a{
+  position: absolute;
+  font-family:Roboto-Bold;
+  font-size: 33px;
+  padding: 20px;
+  color: #e8e8e8;
+  cursor: pointer;
+}
+div li a:hover{
+  color: #dac3ae;
+}
+article{
+  background-image: url('../img/comic/comic_bg.png');
+  padding-bottom:55px;
+}
+footer{
+  height: 74px;
+  background-color: #3c5162;
+}
+.iconTop{
+  float: left;
+  padding: 21px 32px;
+}
+footer .icon{
+  float: left;
+  margin-left: 32px;
+  margin-top: 21px;
+  margin-top:24px;
+  margin-right:16px;
+}
+.icon_p{
+  margin-top: 33px;
+  float: left;
+  font-size: 14px;
+  font-family: Roboto;
+  color: white;
+}
+.ipad{
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: -66px;
+  margin-top: -43px;
+  background-position: 67px 50px;
+  background-repeat: no-repeat;
+}
+.ipadContent{
+  position: absolute;
+  margin-top: 36px;
+  margin-left: 260px;
+}
+.ipadImg{
+  width: 860px;
+  height: 640px;
+  position: absolute;
+  top: 6px;
+  left: -1px;
+  background-position: 860px 1px;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+.back{
+  position: absolute;
+  width: 11px;
+  height: 18px;
+  margin-top: 318px;
+  margin-left: 912px;
+  background-image: url('../img/00_back.png');
+  z-index: 1;
+}
+.back:hover{
+  background-image: url('../img/00_back_hover.png');
+  cursor: pointer;
+}
+header .ipadContent_e{
+  font-family: Roboto;
+  color: #61514a;
+  font-size: 21px;
+  text-align:center;
+  line-height: 32px;
+  margin-top: 14px;
+  margin-left: 40px;
+  opacity: 0;
+  animation: light 1.5s 1 ease-in-out;
+  animation-delay: 3s;
+  animation-fill-mode:forwards;
+}
+header .ipadContent_c{
+  color: #61514a;
+  font-size: 21px;
+  font-family: NotoSansCJK;
+  text-align:center;
+  margin-left: 45px;
+  margin-top: 47px;
+  line-height: 41px;
+  opacity: 0;
+  animation: light 1.5s 1 ease-in-out;
+  animation-delay: 2.5s;
+  animation-fill-mode:forwards;
+}
+.contact{
+  display: inline-block;
+}
+.contact img{
+  float: left;
+  margin-top: 30px;
+  margin-right: 9px;
+}
+.contact_line{
+  font-size: 16px;
+  padding-left: 10px;
+  border-top: 0px;
+  border-bottom: 0px;
+  border-left: 1px;
+  border-right: 0px;
+  border-style: solid;
+  border-color: white;
+  color: white;
+  font-family: Roboto;
+}
+.contact_p{
+  margin-top: 30px;
+  font-size: 14px;
+  font-family: Roboto;
+  color: white;
+  display: inline-block;
+}
+.Title_img_p{
+  display:inline;
+}
+.BigTitle{
+  color: #2f2925;
+  font-size: 27px;
+  font-family: NotoSansCJK;
+}
+header .BigTitle{
+  font-size: 48px;
+  margin-left: 13px;
+}
+.unitTitle{
+  text-align: left;
+  margin-left:235px;
+  margin-top: 34px;
+  padding-top:76px;
+}
+.unitNumber{
+  color: #2f2925;
+  font-size:110px;
+  font-family:Roboto-Bold;
+  margin-right: 16px;
+  display: inline-block;
+}
+.unitBigTitle{
+  color: #2f2925;
+  font-size:48px;
+  text-align: left;
+  font-family:Roboto-Bold;
+}
+.unitSmallTitle{
+  color:#989898;
+  font-size:33px;
+  font-family:Roboto-Bold;
+  text-align: left;
+  margin-top:4px;
+}
+.header_scale{
+  background-size: 120%;
+  width: 1440px;
+  height: 809px;
+  background-position:center;
+  background-image: url('../img/comic/comic_img.png');
+  animation: scale 2s 1 ease-in-out;
+  animation-fill-mode:forwards;
+}
+.header_light{
+  position: absolute;
+  margin-left: -404px;
+  height: 809px;
+  opacity: 0;
+  animation: light 3s 1 ease-in-out;
+  animation-delay: 1.5s;
+  animation-fill-mode:forwards;
+}
+.shake{
+  animation: shake 1.5s infinite ease-in-out;
+  animation-fill-mode:forwards;
+  animation-delay: 3.5s;
+}
+#apple{
+  position: absolute;
+  margin-top:48px;
+  margin-left:180px;
+  z-index: -1;
+  opacity: 0;
+}
+.shadow_a{
+  position: absolute;
+  margin-top:208px;
+  margin-left:399px;
+  z-index: -2;
+  opacity: 0;
+}
+@keyframes apple {
+  0%{
+    opacity: 1;
+  }
+  10%{
+    margin-top:135px;
+    margin-left:180px;
+    transform: rotate(30deg);
+  }
+  100%{
+    opacity: 1;
+    transform: rotate(140deg);
+    margin-top:135px;
+    transform: rotate(435deg);
+    margin-left:370px;
+  }
+}
+@keyframes shadow {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+@keyframes scale{
+  100%{
+    background-size: 100%;
+  }
+}
+@keyframes light{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+@keyframes shake{
+  0%{
+		transform: rotate(0deg);
+	}
+	50%{
+		transform: rotate(-25deg);
+	}
+	100%{
+		transform: rotate(0deg);
+	}
+}
+@keyframes ipadImg{
+	0%{
+    background-position: 860px 1px;
+	}
+	100%{
+    background-position: 2px 1px;
+	}
+}
+@font-face {
+  font-family: 'Roboto';
+  src:url('../font/Roboto-Regular.ttf') format("truetype");
+}
+@font-face {
+  font-family: 'Roboto-Bold';
+  src:url('../font/Roboto-Bold.ttf') format("truetype");
+}
+@font-face {
+  font-family: 'NotoSansCJK';
+  src:url('../font/NotoSansCJKtc-Medium.otf') format("opentype");
+}
+@font-face {
+  font-family: 'NotoSansCJK-Light';
+  src:url('../font/NotoSansCJKtc-Light.otf') format("opentype");
+}
