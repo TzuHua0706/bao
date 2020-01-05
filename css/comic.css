@@ -105,7 +105,7 @@ footer .icon{
   left: 0;
   margin-left: -66px;
   margin-top: -43px;
-  background-position: 67px 50px;
+  background-position: 67px 48px;
   background-repeat: no-repeat;
 }
 .ipadContent{
@@ -117,7 +117,7 @@ footer .icon{
   width: 860px;
   height: 640px;
   position: absolute;
-  top: 6px;
+  top: 4px;
   left: -1px;
   background-position: 860px 1px;
   background-repeat: no-repeat;
@@ -263,6 +263,67 @@ header .BigTitle{
   margin-left:399px;
   z-index: -2;
   opacity: 0;
+}
+.message{
+  margin:42px 0 0 217px;
+  height: 790px;
+  width: 1008px;
+}
+.message_text{
+  display:inline-block;
+  background-color: white;
+  opacity: 0.8;
+  color: #2f2925;
+  font-size:24px;
+  font-family:NotoSansCJK;
+  border-radius: 15px;
+  padding: 7px 30px;
+  cursor: move;
+  box-shadow:1px 3px 5px #2f2925;
+}
+.message_circle{
+  display:inline-block;
+  position: absolute;
+  background-color: black;
+  opacity: 0.8;
+  border-radius: 50px;
+  width: 34px;
+  height: 34px;
+  margin-top: 8px;
+  cursor: move;
+}
+.message_area{
+  position:relative;
+  opacity: 0;
+  margin:0 0 0 42px;
+  height: 640px;
+  width: 858px;
+  overflow:hidden;
+  z-index: 1;
+}
+input{
+  background-color: white;
+  color: black;
+  outline:none;
+  margin:65px 0 0 5px;
+  font-size:32px;
+  font-family:NotoSansCJK-Light;
+  border-radius: 20px;
+  padding: 15px 25px;
+  width: 855px;
+  border: none;
+}
+.message_enter{
+  position: absolute;
+  float: right;
+  margin:82px 0 0 -60px;
+  cursor: pointer;
+  z-index: 1;
+}
+.message_btn{
+  float: left;
+  margin:70px 0 0 15px;
+  cursor: pointer;
 }
 @keyframes apple {
   0%{
