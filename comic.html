@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>comic page</title>
     <link rel="shortcut icon" type="image/x-icon" href="img/title_icon.png">
+    <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-database.js"></script>
     <script src="js\jquery-3.4.1.min.js"></script>
     <script src="js\comic.js"></script>
     <script src="js\skrollr.js"></script>
@@ -48,7 +50,7 @@
         </ul>
       </div>
       <div>
-        <div id="01">
+        <div>
           <div class="unitTitle" style="margin-top:0px">
             <p class="unitNumber">01</p>
             <div style="display: inline-block;">
@@ -57,13 +59,25 @@
             </div>
           </div>
           <div class="ipadContent">
-            <div onclick="changeImg('1','4');" class="back"></div>
-            <div id="ipadImg1" style="background-image: url(img/comic/comic_1-2.png);" class="ipadImg"></div>
+            <div onclick="changeImg(this,1);" class="back"></div>
+            <div style="background-image: url(img/comic/comic_1-2.png);" class="ipadImg"></div>
             <img class="ipad" style="background-image: url(img/comic/comic_1-1.png);" src="img/00_pad.png">
           </div>
-          <div style="width: 1052px;height: 759px;"></div>
+          <!--message-->
+          <div class="message">
+            <div class="message_area">
+              <div id="page1-1" style="opacity: 1;"></div>
+              <div id="page1-2" style="opacity: 0;"></div>
+              <div id="page1-3" style="opacity: 0;"></div>
+              <div id="page1-4" style="opacity: 0;"></div>
+            </div>
+            <img onclick="messageBtn(this,1)" class="message_btn" src="img/comic/eye_0.png">
+            <input id="input_1" type="type" name="message">
+            <img onclick="message(1);" class="message_enter" src="img/comic/send.png">
+          </div>
+          <!-- <div style="width: 1052px;height: 759px;"></div> -->
         </div>
-        <div id="02">
+        <div>
           <img id="apple" src="img/material/apple.png">
           <img class="shadow_a" src="img/material/shadow.png">
           <div class="unitTitle">
@@ -74,13 +88,23 @@
             </div>
           </div>
           <div class="ipadContent">
-            <div class="back"></div>
-            <div id="ipadImg2" style="background-image: url(img/comic/comic_1-2.png);" class="ipadImg"></div>
-            <img class="ipad" style="background-image: url(img/comic/comic_1-1.png);" src="img/00_pad.png">
+            <div onclick="changeImg(this,2);" class="back"></div>
+            <div id="ipadImg2" style="background-image: url(img/comic/comic_2-2.png);" class="ipadImg"></div>
+            <img class="ipad" style="background-image: url(img/comic/comic_2-1.png);" src="img/00_pad.png">
           </div>
-          <div style="width: 1052px;height: 759px;"></div>
+          <div class="message">
+            <div class="message_area">
+                <div id="page2-1" style="opacity: 1;position: absolute;"></div>
+                <div id="page2-2" style="opacity: 0;position: absolute;"></div>
+                <div id="page2-3" style="opacity: 0;position: absolute;"></div>
+                <div id="page2-4" style="opacity: 0;position: absolute;"></div>
+            </div>
+            <img onclick="messageBtn(this,2)" class="message_btn" src="img/comic/eye_0.png">
+            <input id="input_2" type="type" name="message">
+            <img onclick="message(2);" class="message_enter" src="img/comic/send.png">
+          </div>
         </div>
-        <div id="03">
+        <div>
           <div class="unitTitle">
             <p class="unitNumber">03</p>
             <div style="display: inline-block;">
@@ -89,13 +113,23 @@
             </div>
           </div>
           <div class="ipadContent">
-            <div class="back"></div>
-            <div id="ipadImg3" style="background-image: url(img/comic/comic_1-2.png);" class="ipadImg"></div>
-            <img class="ipad" style="background-image: url(img/comic/comic_1-1.png);" src="img/00_pad.png">
+            <div onclick="changeImg(this,3);" class="back"></div>
+            <div id="ipadImg3" style="background-image: url(img/comic/comic_3-2.png);" class="ipadImg"></div>
+            <img class="ipad" style="background-image: url(img/comic/comic_3-1.png);" src="img/00_pad.png">
           </div>
-          <div style="width: 1052px;height: 759px;"></div>
+          <div class="message">
+            <div class="message_area">
+                <div id="page3-1" style="opacity: 1;position: absolute;"></div>
+                <div id="page3-2" style="opacity: 0;position: absolute;"></div>
+                <div id="page3-3" style="opacity: 0;position: absolute;"></div>
+                <div id="page3-4" style="opacity: 0;position: absolute;"></div>
+            </div>
+            <img onclick="messageBtn(this,3)" class="message_btn" src="img/comic/eye_0.png">
+            <input id="input_3" type="type" name="message">
+            <img onclick="message(3);" class="message_enter" src="img/comic/send.png">
+          </div>
         </div>
-        <div id="04">
+        <div>
           <div class="unitTitle">
             <p class="unitNumber">04</p>
             <div style="display: inline-block;">
@@ -104,11 +138,21 @@
             </div>
           </div>
           <div class="ipadContent">
-            <div class="back"></div>
-            <div id="ipadImg4" style="background-image: url(img/comic/comic_1-2.png);" class="ipadImg"></div>
-            <img class="ipad" style="background-image: url(img/comic/comic_1-1.png);" src="img/00_pad.png">
+            <div onclick="changeImg(this,4);" class="back"></div>
+            <div id="ipadImg4" style="background-image: url(img/comic/comic_4-2.png);" class="ipadImg"></div>
+            <img class="ipad" style="background-image: url(img/comic/comic_4-1.png);" src="img/00_pad.png">
           </div>
-          <div style="width: 1052px;height: 759px;"></div>
+          <div class="message">
+            <div class="message_area">
+                <div id="page4-1" style="opacity: 1;position: absolute;"></div>
+                <div id="page4-2" style="opacity: 0;position: absolute;"></div>
+                <div id="page4-3" style="opacity: 0;position: absolute;"></div>
+                <div id="page4-4" style="opacity: 0;position: absolute;"></div>
+            </div>
+            <img onclick="messageBtn(this,4)" class="message_btn" src="img/comic/eye_0.png">
+            <input id="input_4" type="type" name="message">
+            <img onclick="message(4);" class="message_enter" src="img/comic/send.png">
+          </div>
         </div>
     </article>
     <footer>
