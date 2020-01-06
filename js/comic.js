@@ -3,7 +3,9 @@ var messagrRef=[];
 var messagrStart=[];
 var input=[];
 var pageNum = [];
-pageNum[0]=pageNum[1]=pageNum[2]=pageNum[3]=2;
+pageNum[0]=pageNum[1]=pageNum[2]=pageNum[3]=1;
+var user_message;
+var move_flag=0;
 $(document).ready(function(){
   //firebase
   const firebaseConfig = {
@@ -49,28 +51,24 @@ $(document).ready(function(){
     if (event.keyCode == 13) {
       event.preventDefault();
       input[0].nextElementSibling.click();
-      input[0].value="";
     }
   });
   input[1].addEventListener("keyup", function(event) {
     if (event.keyCode == 13) {
       event.preventDefault();
       input[1].nextElementSibling.click();
-      input[1].value="";
     }
   });
   input[2].addEventListener("keyup", function(event) {
     if (event.keyCode == 13) {
       event.preventDefault();
       input[2].nextElementSibling.click();
-      input[2].value="";
     }
   });
   input[3].addEventListener("keyup", function(event) {
     if (event.keyCode == 13) {
       event.preventDefault();
       input[3].nextElementSibling.click();
-      input[3].value="";
     }
   });
 });
@@ -92,6 +90,7 @@ function firebaseUpdate(chapter,page){
           message.style.marginLeft=-text.offsetWidth/2+429+'px';
           message.style.marginTop=-text.offsetHeight/2+320+'px';
           message.style.position='absolute';
+          message.style.cursor='move';
           circle.style.marginLeft=-text.offsetWidth-24+'px';
           message.appendChild(circle);
         });
@@ -100,7 +99,8 @@ function firebaseUpdate(chapter,page){
     }
     else{
       //之後的
-      var textRef = firebase.database().ref('chapter'+chapter+'/page'+page+'/'+snapshot.val()+'/message');
+      var ref = firebase.database().ref('chapter'+chapter+'/page'+page+'/'+snapshot.val()+'/message');
+      var textRef = ref.child('message');
       textRef.once('value', function (snapshot) {
         var message = document.createElement("div");
         document.getElementById('page'+chapter+'-'+page).appendChild(message);
@@ -113,6 +113,7 @@ function firebaseUpdate(chapter,page){
         message.style.marginLeft=-text.offsetWidth/2+429+'px';
         message.style.marginTop=-text.offsetHeight/2+320+'px';
         message.style.position='absolute';
+        message.style.cursor='move';
         circle.style.marginLeft=-text.offsetWidth-24+'px';
         message.appendChild(circle);
       });
@@ -147,31 +148,62 @@ function messageBtn(btn,chapterNum){
   else twoswitch[chapterNum-1]=1;
 }
 function message(chapterNum){
-  var messagrNumRef = firebase.database().ref('chapter'+chapterNum+'/page'+(pageNum[chapterNum-1]-1)+'/messageNum');
-  messagrNumRef.once('value', function (snapshot) {
-    var message = document.getElementById("input_"+chapterNum).value;
-    messageNum = Number(snapshot.val())+1;
-    console.log(messageNum);
-    firebase.database().ref('chapter'+chapterNum+'/page'+(pageNum[chapterNum-1]-1)).update({messageNum:messageNum});
-    firebase.database().ref('chapter'+chapterNum+'/page'+(pageNum[chapterNum-1]-1)+'/'+messageNum).set({message:message});
-    console.log('chapter'+chapterNum+'/page'+(pageNum[chapterNum-1]-1)+'/'+messageNum);
+  user_message = document.getElementById('message_'+chapterNum);
+  var text = document.createElement("div");
+  text.setAttribute("class","message_text");
+  user_message.appendChild(text);
+  $(text).html(document.getElementById("input_"+chapterNum).value);
+  var circle = document.createElement("div");
+  circle.setAttribute("class","message_circle");
+  user_message.style.marginLeft=-text.offsetWidth/2+429+42+'px';
+  user_message.style.marginTop=-text.offsetHeight/2+320-782+'px';
+  user_message.style.position='absolute';
+  user_message.style.zIndex=1;
+  user_message.style.cursor='move';
+  circle.style.marginLeft=-text.offsetWidth-24+'px';
+  user_message.appendChild(circle);
+  $(user_message).mousedown(function(e){
+    $(document).bind("mousemove",function(e){
+      user_message.style.margin=0;
+      $(user_message).css("left",e.pageX).css("top",e.pageY);
+    });
   });
+  $(user_message).mouseup(function(e){
+    $(document).unbind("mousemove");
+    var messagrNumRef = firebase.database().ref('chapter'+chapterNum+'/page'+(pageNum[chapterNum-1])+'/messageNum');
+    messagrNumRef.once('value', function (snapshot) {
+      messageNum = Number(snapshot.val())+1;
+      firebase.database().ref('chapter'+chapterNum+'/page'+(pageNum[chapterNum-1])).update({messageNum:messageNum});
+      firebase.database().ref('chapter'+chapterNum+'/page'+(pageNum[chapterNum-1])+'/'+messageNum).set({message:input[chapterNum-1].value,x:user_message.style.left,y:user_message.style.top});
+      input[chapterNum-1].value="";
+    });
+    user_message=null;
+    // document.getElementById('message_'+chapterNum).removeChild(text);
+    // document.getElementById('message_'+chapterNum).removeChild(circle);
+  })
 }
-function changeImg(btn,chapter){
-  for(var ch=1;ch<=chapterNum;ch++)
-    for(var page=1;page<=4;page++)
-      document.getElementById('page'+ch+'-'+page).style.opacity=0;
-  var img = btn.nextElementSibling;
-  if(pageNum[chapter-1]>=0&&pageNum[chapter-1]<5){
-    img.style.backgroundImage=img.style.backgroundImage.substring(0,img.style.backgroundImage.length-7)+pageNum[chapter-1]+img.style.backgroundImage.substring(img.style.backgroundImage.length-6);
-    img.style.animation='ipadImg 1.5s 1 ease-in-out';
-    img.addEventListener("webkitAnimationEnd", function() {
-      if($(img).css('animation-name')=='ipadImg'){
-        pageNum[chapter-1]++;
-        $(this).parent().find('img').css("background-image",img.style.backgroundImage);
-        $(this).css('animation','');
-        document.getElementById('page'+chapter+'-'+(pageNum[chapter-1]-1)).style.opacity=1;
-      }
-    })
+function changeImg(btn,chapter,direction){
+  if((direction=='left'&&pageNum[chapter-1]>1)||(direction=='right'&&pageNum[chapter-1]<4)){
+    for(var ch=1;ch<=chapterNum;ch++)
+      for(var page=1;page<=4;page++)
+        document.getElementById('page'+ch+'-'+page).style.opacity=0;
+    var img;
+    if (direction=='right')img = btn.nextElementSibling;
+    else if(direction=='left')  img = btn.nextElementSibling.nextElementSibling;
+    if($(img).css('animation-name')=='none')
+    {
+      if (direction=='right')pageNum[chapter-1]++;
+      else if(direction=='left')pageNum[chapter-1]--;
+      img.style.backgroundImage=img.style.backgroundImage.substring(0,img.style.backgroundImage.length-7)+pageNum[chapter-1]+img.style.backgroundImage.substring(img.style.backgroundImage.length-6);
+      img.style.animation='ipadImg_'+direction+' 1.5s 1 ease-in-out';
+      img.addEventListener("webkitAnimationEnd", function() {
+        if($(img).css('animation-name')!='none'){
+          $(this).parent().find('img').css("background-image",img.style.backgroundImage);
+          console.log('page'+chapter+'-'+pageNum[chapter-1]);
+          document.getElementById('page'+chapter+'-'+pageNum[chapter-1]).style.opacity=1;
+          $(this).css('animation','none');
+        }
+      });
+    }
   }
 }
