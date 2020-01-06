@@ -77,7 +77,8 @@ function firebaseUpdate(chapter,page){
     if(messagrStart[chapter-1][page-1]==0){
       //第一次
       for(var num=1;num<=snapshot.val();num++){
-        var textRef = firebase.database().ref('chapter'+chapter+'/page'+page+'/'+num+'/message');
+        var ref = firebase.database().ref('chapter'+chapter+'/page'+page+'/'+snapshot.val());
+        var textRef = ref.child('message');
         textRef.once('value', function (snapshot) {
           var message = document.createElement("div");
           document.getElementById('page'+chapter+'-'+page).appendChild(message);
@@ -99,7 +100,6 @@ function firebaseUpdate(chapter,page){
     }
     else{
       //之後的
-//      var ref = firebase.database().ref('chapter'+chapter+'/page'+page+'/'+snapshot.val()+'/message');
       var ref = firebase.database().ref('chapter'+chapter+'/page'+page+'/'+snapshot.val());
       var textRef = ref.child('message');
       textRef.once('value', function (snapshot) {
@@ -111,7 +111,7 @@ function firebaseUpdate(chapter,page){
         $(text).html(snapshot.val());
         var circle = document.createElement("div");
         circle.setAttribute("class","message_circle");
-        message.style.left=-text.offsetWidth/2+429+'px';
+        message.style.marginLeft=-text.offsetWidth/2+429+'px';
         message.style.marginTop=-text.offsetHeight/2+320+'px';
         message.style.position='absolute';
         message.style.cursor='move';
