@@ -124,12 +124,13 @@ footer .icon{
   z-index: 1;
 }
 .back{
-  position: absolute;
-  width: 11px;
-  height: 18px;
-  margin-top: 318px;
-  margin-left: 912px;
+  background-repeat: no-repeat;
+  background-position: center;
   background-image: url('../img/00_back.png');
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
   z-index: 1;
 }
 .back:hover{
@@ -278,19 +279,17 @@ header .BigTitle{
   font-family:NotoSansCJK;
   border-radius: 15px;
   padding: 7px 30px;
-  cursor: move;
   box-shadow:1px 3px 5px #2f2925;
 }
 .message_circle{
   display:inline-block;
   position: absolute;
-  background-color: black;
-  opacity: 0.8;
+  background-color: #3c5162;
+  opacity: 0.9;
   border-radius: 50px;
   width: 34px;
   height: 34px;
   margin-top: 8px;
-  cursor: move;
 }
 .message_area{
   position:relative;
@@ -374,7 +373,15 @@ input{
 		transform: rotate(0deg);
 	}
 }
-@keyframes ipadImg{
+@keyframes ipadImg_left{
+	0%{
+    background-position: -858px 1px;
+	}
+	100%{
+    background-position: 2px 1px;
+	}
+}
+@keyframes ipadImg_right{
 	0%{
     background-position: 860px 1px;
 	}
