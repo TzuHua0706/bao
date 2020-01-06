@@ -91,7 +91,7 @@ function firebaseUpdate(chapter,page){
           message.style.marginLeft=-text.offsetWidth/2+429+'px';
           message.style.marginTop=-text.offsetHeight/2+320+'px';
           message.style.position='absolute';
-          message.style.cursor='move';
+          message.style.zIndex=1;
           circle.style.marginLeft=-text.offsetWidth-24+'px';
           message.appendChild(circle);
         });
@@ -114,7 +114,7 @@ function firebaseUpdate(chapter,page){
         message.style.marginLeft=-text.offsetWidth/2+429+'px';
         message.style.marginTop=-text.offsetHeight/2+320+'px';
         message.style.position='absolute';
-        message.style.cursor='move';
+        message.style.zIndex=1;
         circle.style.marginLeft=-text.offsetWidth-24+'px';
         message.appendChild(circle);
       });
@@ -149,6 +149,8 @@ function messageBtn(btn,chapterNum){
   else twoswitch[chapterNum-1]=1;
 }
 function message(chapterNum){
+  if(!move_flag){
+  move_flag=1;
   user_message = document.getElementById('message_'+chapterNum);
   var text = document.createElement("div");
   text.setAttribute("class","message_text");
@@ -178,10 +180,12 @@ function message(chapterNum){
       firebase.database().ref('chapter'+chapterNum+'/page'+(pageNum[chapterNum-1])+'/'+messageNum).set({message:input[chapterNum-1].value,x:user_message.style.left,y:user_message.style.top});
       input[chapterNum-1].value="";
     });
-    user_message=null;
-     document.getElementById('message_'+chapterNum).removeChild(text);
-     document.getElementById('message_'+chapterNum).removeChild(circle);
-  })
+    user_message=0;
+    document.getElementById('message_'+chapterNum).removeChild(text);
+    document.getElementById('message_'+chapterNum).removeChild(circle);
+    move_flag=0;
+  });
+  }
 }
 function changeImg(btn,chapter,direction){
   if((direction=='left'&&pageNum[chapter-1]>1)||(direction=='right'&&pageNum[chapter-1]<4)){
