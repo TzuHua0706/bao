@@ -179,8 +179,8 @@ function message(chapterNum){
       input[chapterNum-1].value="";
     });
     user_message=null;
-    // document.getElementById('message_'+chapterNum).removeChild(text);
-    // document.getElementById('message_'+chapterNum).removeChild(circle);
+     document.getElementById('message_'+chapterNum).removeChild(text);
+     document.getElementById('message_'+chapterNum).removeChild(circle);
   })
 }
 function changeImg(btn,chapter,direction){
